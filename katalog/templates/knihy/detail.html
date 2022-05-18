@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podekovani</title>
+    <title>Kniha</title>
 </head>
 <body>
-    <h1>Dekujeme za vlozeni nove knihy do databaze.</h1>
-    <a href="{% url "formular" %}">Zpet na zadavani knizek</a>
-    <p>A na zaver perlicka: jmeno meho slona je {{ jmeno_slona }}</p>
+    <h1>{{ kniha.jmeno }} </h1>
+    <h2>{{ kniha.autor }} </h2>
+    <p>{{ kniha.recenze }} </p>
+    <p><a href="{% url "seznam_knih" %}">Zpet na seznam knih</a></p>
 </body>
 </html>

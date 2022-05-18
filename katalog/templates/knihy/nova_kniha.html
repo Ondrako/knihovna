@@ -9,9 +9,47 @@
 <body>
     <h1>Zadej jmeno knihy:</h1>
 
-    <form method="POST">
+    <form method="POST" action="/">
         {% csrf_token %}
-        {{ form }}
+        
+        <!--
+        {{ form.as_p}}
+        -->
+
+        <!--
+        <ul>
+            {{ form.as_ul }}
+        </ul>
+        -->
+
+        
+        <table>
+            {{ form.as_table}}
+        </table>
+        
+
+        <!--
+        {{ form.jmeno.label_tag }}
+        {{ form.jmeno }}
+        {{ form.jmeno.errors }}
+        {{ form.autor.label_tag }}
+        {{ form.autor }}
+        {{ form.autor.errors }}
+        {{ form.recenze.label_tag }}
+        {{ form.recenze }}
+        {{ form.recenze.errors }}
+        -->
+        
+        <!--
+        {% for policko in form %}
+            <p>
+                {{ policko.label_tag }}
+            </p>
+            {{ policko }}
+            {{ policko.errors}}
+        {% endfor %}
+        -->
+
         <button>Odesli</button>
     </form>
 </body>
