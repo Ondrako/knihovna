@@ -1,56 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova kniha</title>
-</head>
-<body>
-    <h1>Zadej jmeno knihy:</h1>
+{% extends "knihy/base.html" %}
 
-    <form method="POST" action="/">
-        {% csrf_token %}
-        
-        <!--
-        {{ form.as_p}}
-        -->
+{% block title %}Nova kniha{% endblock %}
 
-        <!--
-        <ul>
-            {{ form.as_ul }}
-        </ul>
-        -->
+{% block content %}
+<h1>Zadej jmeno knihy:</h1>
 
-        
-        <table>
-            {{ form.as_table}}
-        </table>
-        
+<form method="POST" action="/">
+    {% csrf_token %}
+    
+    <!--
+    {{ form.as_p}}
+    -->
 
-        <!--
-        {{ form.jmeno.label_tag }}
-        {{ form.jmeno }}
-        {{ form.jmeno.errors }}
-        {{ form.autor.label_tag }}
-        {{ form.autor }}
-        {{ form.autor.errors }}
-        {{ form.recenze.label_tag }}
-        {{ form.recenze }}
-        {{ form.recenze.errors }}
-        -->
-        
-        <!--
-        {% for policko in form %}
-            <p>
-                {{ policko.label_tag }}
-            </p>
-            {{ policko }}
-            {{ policko.errors}}
-        {% endfor %}
-        -->
+    <!--
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    -->
 
-        <button>Odesli</button>
-    </form>
-</body>
-</html>
+    
+    <table>
+        {{ form.as_table}}
+    </table>
+    
+
+    <!--
+    {{ form.jmeno.label_tag }}
+    {{ form.jmeno }}
+    {{ form.jmeno.errors }}
+    {{ form.autor.label_tag }}
+    {{ form.autor }}
+    {{ form.autor.errors }}
+    {{ form.recenze.label_tag }}
+    {{ form.recenze }}
+    {{ form.recenze.errors }}
+    -->
+    
+    <!--
+    {% for policko in form %}
+        <p>
+            {{ policko.label_tag }}
+        </p>
+        {{ policko }}
+        {{ policko.errors}}
+    {% endfor %}
+    -->
+
+    <button>Odesli</button>
+</form>
+{% endblock %}

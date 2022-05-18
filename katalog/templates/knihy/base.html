@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Stranka o knihach{% endblock %}</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>Ahoj, jsi prihlasen jako {{ user.username }}.</p>
+    <p>Tvoje primeni je {{ user.username }}.</p>
+    {% endif %}
+
+<ul>
+    <li><a href="{% url 'seznam_knih' %}">Seznam knih</a></li>
+    <li><a href="{% url 'formular' %}">Zadani nove knihy</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Odhlasit se</a></li>
+    {% else %}
+    <li><a href="{% url 'login' %}">Prihlasit se</a></li>
+    {% endif %}
+</ul>
+    {%block content %}
+    <p>Tato stranka neni dodelana</p>
+    {% endblock %}
+</body>
+</html>

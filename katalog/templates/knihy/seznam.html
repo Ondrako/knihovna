@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knihy</title>
-</head>
-<body>
-    <h1>Moje oblibene knihy:</h1>
-    <ol>
-        {% for kniha in knihy %}
-        <li><a href="{{ kniha.get_absolute_url }}">{{ kniha.autor }}: {{ kniha.jmeno}}</a></li>
-        {% endfor %}
-    </ol>
-</body>
-</html>
+{% extends "knihy/base.html" %}
+
+{% block title %}Knihy{% endblock %}
+
+{% block content %}
+<h1>Moje oblibene knihy:</h1>
+<ol>
+    {% for kniha in knihy %}
+    <li><a href="{{ kniha.get_absolute_url }}">{{ kniha.autor }}: {{ kniha.jmeno}}</a></li>
+    {% endfor %}
+</ol>
+<p>Tvoje posledni prohlizena kniha je {% if posledni != "zadna" %}je{% else %}neni{% endif %} {{ posledni }}</p>
+{% endblock %}
